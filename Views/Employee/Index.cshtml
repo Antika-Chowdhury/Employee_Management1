@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Employee_Management1.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Employee List</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="float-start">
+                <a class="btn btn-sm btn-primary m-2 p-2" asp-action="AddEmployee" asp-controller="Employee">Add Employee</a>
+            </div>
+            <table class="table table-bordered text-center">
+                <thead class="bg-dark text-light">
+                    <tr>
+                    <th>EmployeeId</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date of Birth</th>
+                    <th>SalaryId</th
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var d in Model)
+                    {
+                        <tr>
+                            <td>@d.EmployeeId</td>
+                            <td>
+                                <a asp-action="EmployeeDetails" asp-controller="Employee" asp-route-id="@d.EmployeeId">@d.FirstName @d.LastName</a>
+                            </td>
+                            <td>@d.Email</td>
+                            <td>@d.Phone</td>
+                            <td>@d.DateofBirth</td>
+                           <td>@(d.EmployeeSalary != null ? d.EmployeeSalary.SalaryId : 0)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,89 @@
+﻿@model Employee_Management1.Models.Employee
+
+@{
+    ViewData["Title"] = "EmployeeUpdate";
+}
+<link href="~/css/style.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery library -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('form').submit(function () {
+            showMessage();
+        });
+    });
+
+    function showMessage() {
+        alert("Data Updated successfully");
+    }
+</script>
+
+<h1>Employee Update</h1>
+
+<div class="container">
+    <form asp-controller="Employee" asp-action="EmployeeUpdate" method="post">
+<div class="row">
+    <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label" hidden></label>
+                <input asp-for="EmployeeId" type="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateofBirth" class="control-label"></label>
+                <input asp-for="DateofBirth" class="form-control" />
+                <span asp-validation-for="DateofBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryId" class="control-label" hidden></label>
+                <input asp-for="SalaryId" type="hidden" />
+                <span asp-validation-for="SalaryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeSalary.Salary" class="control-label">Salary</label>
+                <div class="input-box">
+                    <input asp-for="EmployeeSalary.Salary" class="form-control" />
+                    <span asp-validation-for="EmployeeSalary.Salary" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmployeeSalary.PayDay" class="control-label">Pay Day</label>
+                <div class="input-box">
+                    <input asp-for="EmployeeSalary.PayDay" class="form-control" />
+                    <span asp-validation-for="EmployeeSalary.PayDay" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
